@@ -51,32 +51,7 @@
             CNODE
           </div>
         </div>
-        <div class="header-nav">
-          <div class="main">
-            <router-link to="/list/all" class="router">
-              全部
-            </router-link>
-            &nbsp;&nbsp;
-            <router-link to="/list/good" class="router">
-              精华
-            </router-link>
-            &nbsp;&nbsp;
-            <router-link to="/list/share" class="router">
-              分享
-            </router-link>
-            &nbsp;&nbsp;
-            <router-link to="/list/ask" class="router">
-              问答
-            </router-link>
-            &nbsp;&nbsp;
-            <router-link to="/list/job" class="router">
-              招聘
-            </router-link>
-          </div>
-        </div>
-        <div class="header-background">
 
-        </div>
       </header>
     </div>
     <!--<md-whiteframe id="main" md-tag="section">
@@ -89,21 +64,21 @@
 </template>
 
 <script>
-  import { mapState, mapMutations } from 'vuex'
-  import mutationTypes from './store/mutation-types'
+//  import { mapState, mapMutations } from 'vuex'
+//  import mutationTypes from './store/mutation-types'
 
   export default {
     name: 'app',
-    computed: mapState(['toolbarTitle']),
-    methods: {
-      toggleSidenav() {
-        this.$refs.sidenav.toggle();
-      },
-      clickNav(title) {
-        this.$refs.sidenav.toggle();
-        this.$store.commit(mutationTypes.CHANGE_TOOLBAR_TITLE, title)
-      }
-    }
+   // computed: mapState(['toolbarTitle']),
+    // methods: {
+    //   toggleSidenav() {
+    //     this.$refs.sidenav.toggle();
+    //   },
+    //   clickNav(title) {
+    //     this.$refs.sidenav.toggle();
+    //     this.$store.commit(mutationTypes.CHANGE_TOOLBAR_TITLE, title)
+    //   }
+    // }
   }
 </script>
 <style scoped>
@@ -133,39 +108,5 @@
     z-index: 999;
     height: 60px;
     background-color: #FFFFFF;
-  }
-  
-  .header-nav {
-    position: fixed;
-    top: 60px;
-    right: 0;
-    left: 0;
-    z-index: 999;
-    height: 48px;
-    background-color: #303F9F;
-  }
-  
-  .header-background {
-    position: fixed;
-    top: 108px;
-    right: 0;
-    left: 0;
-    height: 213px;
-    background-color: #303F9F;
-  }
-
-  .router:hover{
-    text-decoration: none !important;
-  }
-
-  .router{
-    color: white !important;
-  }
-
-  .router-link-active{
-    background-color: #80bd01;
-    color: #fff;
-    padding: 3px 4px 3px 8px;
-    border-radius: 3px;
   }
 </style>
