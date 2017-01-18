@@ -31,7 +31,7 @@
 
         <md-whiteframe md-tag="section" class="container">
             <md-list>
-                <md-list-item v-for="topic in data">
+                <md-list-item v-for="(topic,index) in data">
                     <md-avatar>
                         <img v-bind:src="topic.author.avatar_url" alt="People">
                     </md-avatar>
@@ -51,14 +51,14 @@
                     </div>
 
                     <div>
-                        <span class="last-active-time">
+                    <span class="last-active-time">
                         {{getDate(topic.last_reply_at)}}
                     </span>
                     </div>
                     <!--<md-button class="md-icon-button md-list-action">
                     <md-icon class="md-primary">chat_bubble</md-icon>
                 </md-button>-->
-                    <md-divider class="md-inset"></md-divider>
+                    <md-divider  v-if="index!=data.length-1" class="md-inset"></md-divider>
                 </md-list-item>
             </md-list>
         </md-whiteframe>
