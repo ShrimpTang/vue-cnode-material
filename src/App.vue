@@ -82,12 +82,7 @@
   }
 </script>
 <style scoped>
-  .main {
-    width: 90%;
-    max-width: 1400px;
-    min-width: 960px;
-    margin: 15px auto;
-  }
+  
   
   .toolbar {
     position: fixed;
@@ -96,10 +91,7 @@
     height: 40%
   }
   
-  .header {
-    height: 381px;
-  }
-  
+
   .header-top {
     position: fixed;
     top: 0;

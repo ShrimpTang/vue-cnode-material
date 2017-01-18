@@ -38,3 +38,36 @@
 *{
     font-family: '微软雅黑'
 }
+.main {
+    width: 90%;
+    max-width: 1400px;
+    min-width: 960px;
+    margin: 15px auto;
+}
+.header-nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    height: 48px;
+    background-color: #303F9F;
+}
+
+.header-background {
+    position: fixed;
+    top: 108px;
+    right: 0;
+    left: 0;
+    height: 213px;
+    background-color: #303F9F;
+}
+
+.topic-top,
+.topic-good {
+    background: #80bd01;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 12px;
+}

@@ -1,8 +1,6 @@
 import vue from 'vue';
 import vueRouter from 'vue-router';
 vue.use(vueRouter);
-//const List = resolve => require(['./components/list.vue'], resolve)
-//import Li from './components/list.vue'
 
 const List = resolve => {
   require.ensure(['./components/list.vue'], () => {
@@ -10,8 +8,16 @@ const List = resolve => {
   })
 }
 
+
+const Topic = resolve => {
+  require.ensure(['./components/topic.vue'], () => {
+    resolve(require('./components/topic.vue'))
+  })
+}
+
 export default new vueRouter({
-    routes: [
-        { path: '/list/:type', component:  List }
-    ]
+  routes: [
+    { path: '/list/:type', component: List },
+    { path: '/topic/:id', component: Topic }
+  ]
 })
