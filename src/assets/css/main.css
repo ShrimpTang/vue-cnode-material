@@ -93,3 +93,8 @@ div pre.prettyprint{
 .md-theme-default code:not(.hljs) {
     background-color: transparent !important;
 }
+
+.main-container{
+    margin-top:123px;
+    background:white;
+}

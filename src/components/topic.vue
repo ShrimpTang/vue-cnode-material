@@ -13,7 +13,7 @@
 
 
 
-        <md-whiteframe md-tag="section" style=" margin-top: 123px;background:white;padding:0px 15px;padding-bottom: 15px;">
+        <md-whiteframe md-tag="section" class="main-container" style="padding:0px 15px;padding-bottom: 15px;">
             <md-list>
                 <md-list-item>
                     <md-avatar>

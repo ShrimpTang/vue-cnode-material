@@ -29,7 +29,7 @@
 
         </div>
 
-        <md-whiteframe md-tag="section"  style=" margin-top: 123px">
+        <md-whiteframe md-tag="section"  class="main-container">
             <md-list>
                 <md-list-item v-for="(topic,index) in data">
                     <md-avatar>
