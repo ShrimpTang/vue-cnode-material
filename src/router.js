@@ -15,9 +15,16 @@ const Topic = resolve => {
   })
 }
 
+const User  = resolve => {
+  require.ensure(['./components/user.vue'], () => {
+    resolve(require('./components/user.vue'))
+  })
+}
+
 export default new vueRouter({
   routes: [
     { path: '/list/:type', component: List },
-    { path: '/topic/:id', component: Topic }
+    { path: '/topic/:id', component: Topic },
+    { path: '/user/:loginname', component: User }
   ]
 })
