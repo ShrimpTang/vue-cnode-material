@@ -13,7 +13,7 @@
 
 
 
-        <md-whiteframe md-tag="section" style=" margin-top: 123px;background:white;padding:0px 15px">
+        <md-whiteframe md-tag="section" style=" margin-top: 123px;background:white;padding:0px 15px;padding-bottom: 15px;">
             <md-list>
                 <md-list-item>
                     <md-avatar>
@@ -24,6 +24,37 @@
             </md-list>
             <div v-html="data.content"></div>
         </md-whiteframe>
+        <br>
+        <md-whiteframe md-tag="section" style=" background:white;padding:0px 15px;padding-bottom: 15px;">
+            <div class="has-ripple count-title">
+                {{data.reply_count}}&nbsp;回复
+            </div>
+            <md-list class="custom-list md-triple-line">
+                <md-list-item v-for="(reply,index) in data.replies">
+                    <md-avatar>
+                        <img v-bind:src="reply.author.avatar_url">
+                    </md-avatar>
+
+                    <div class="md-list-text-container">
+                        <span class="reply-info">{{reply.author.loginname}}&nbsp; {{index+1}}楼 &nbsp;{{reply.create_at | timeAgo}}</span>
+                        <div v-html="reply.content"></div>
+                    </div>
+                    
+                    
+                    <md-button class="md-icon-button md-list-action">
+                        <md-icon class="md-primary">thumb_up</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button md-list-action">
+                        <md-icon class="md-primary">reply</md-icon>
+                    </md-button>
+
+                    <md-divider class="md-inset"></md-divider>
+                </md-list-item>
+
+
+            </md-list>
+        </md-whiteframe>
+
     </div>
 </template>
 <script>
@@ -32,8 +63,6 @@
         name: 'topic',
         data() {
             return {
-                // loading: false,
-                // error: false,
                 data: {
                     author:{
 
@@ -50,22 +79,24 @@
             })
         },
         created() {
-           // this.fetchData();
         },
         methods: {
 
+        },
+        watch:{
+            $route(){
+                fetchData(this.$route.params.id).then(data=>{
+                    this.data = data
+                    setTimeout(()=>{prettyPrint()},1)
+                })
+            }
         }
     }
         function fetchData(id) {
-        // this.error = null;
-        // this.loading = true;
         return get('topic/' + id).then(data => {
-           // this.loading = false;
             console.log(data);
             if (data.success) {
                 return data.data;
-                // this.data = data.data;
-                // setTimeout(()=>{prettyPrint()},1)
                 
             }
         })
@@ -76,5 +107,15 @@
         color: white;
         font-size: 22px;
         font-weight: bold;
+    }
+    
+    .count-title {
+        height: 34px;
+        line-height: 48px;
+    }
+    
+    .reply-info {
+        font-size: 12px;
+        color: #a0a0a0
     }
 </style>
