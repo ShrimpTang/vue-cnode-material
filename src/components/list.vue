@@ -52,7 +52,7 @@
 
                     <div>
                     <span class="last-active-time">
-                        {{getDate(topic.last_reply_at)}}
+                        {{topic.last_reply_at | timeAgo}}
                     </span>
                     </div>
                     <!--<md-button class="md-icon-button md-list-action">
@@ -69,7 +69,6 @@
 <script>
 import {get} from '../api'
 import moment from 'moment'
-
 export default {
     name:'list',
     created(){
@@ -89,17 +88,10 @@ export default {
             this.loading = true;
             get('topics',{tab:this.$route.params.type}).then((data)=>{
                 this.loading = false;
-                console.log(data.data)
                 if(data.success){
                     this.data = data.data;
                 }
             })
-        },
-        getDate(date){
-            if(date){
-                return moment(date).fromNow(); 
-            }
-            return ''
         }
     },
     watch:{

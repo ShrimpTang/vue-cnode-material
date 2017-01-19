@@ -71,3 +71,25 @@
     color: #fff;
     font-size: 12px;
 }
+
+div pre.prettyprint{
+    font-size: 14px;
+    border-radius: 0;
+    padding: 0 15px;
+    border: none;
+    border-width: 1px 0;
+    background: #f7f7f7;
+    line-height: 29px;
+}
+
+.topic-page h3 {
+    font-size: 24px;
+    padding-top: 24px;
+    padding-bottom: 5px;
+    margin: 0px;
+    border-bottom: 1px solid #eef;
+}
+
+.md-theme-default code:not(.hljs) {
+    background-color: transparent !important;
+}
